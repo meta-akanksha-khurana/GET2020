@@ -11,6 +11,7 @@ public class ArrOperation {
 	 * Clump in an array is a series of 2 or more adjacent elements of the same value.
 	 * @param arr array
 	 * @return numberOfClumps
+	 * @throw AssertionError Exception
 	 */
 	int countClumps(int array[])
 	{
@@ -39,6 +40,7 @@ public class ArrOperation {
 	 * The method maxMirror is used to find the size of largest mirror section in an array.
 	 * @param arr array
 	 * @return largest mirror section size i.e. maxSize
+	 * @throw AssertionError Exception
 	 */
 	 int maxMirror(int array[])
 	{
@@ -79,6 +81,7 @@ public class ArrOperation {
 	 * @param X
 	 * @param Y
 	 * @return rearranged array
+	 * @throw AssertionError Exception
 	 */
     int[] fixXY(int array[],int X,int Y)
 	{
@@ -96,6 +99,7 @@ public class ArrOperation {
 			}
 		}
 		
+	        //loop to check if two adjacent X values are there
 		for(int i=0;i<length-1;i++){
 			if(array[i]==X && array[i+1]==X){
 				adjacentFlag=true;
@@ -103,7 +107,9 @@ public class ArrOperation {
 			}
 		}
 		
-		
+		/* throw AssertionError if 
+		 * Array is empty,there are unequal number of X and Y,two adjacent X values are there,X occurs at last index of array
+		 */
 		if((length==0) || (countX!=countY) || adjacentFlag==true || array[length-1]==X ){
 			throw new AssertionError();
 		}
@@ -142,6 +148,7 @@ public class ArrOperation {
 	 * right array's elements sum is equal.
 	 * @param arr array
 	 * @return index at which array can be split
+	 * @throw AssertionError Exception
 	 */
 	 int splitArray(int arr[])                               
 	{
