@@ -9,7 +9,7 @@ public class ArrOperation {
 	/**
 	 * The method countClumps is used to count the clumps in an array.
 	 * Clump in an array is a series of 2 or more adjacent elements of the same value.
-	 * @param arr array
+	 * @param array is input array
 	 * @return numberOfClumps
 	 * @throw AssertionError Exception
 	 */
@@ -38,7 +38,7 @@ public class ArrOperation {
 	
 	/**
 	 * The method maxMirror is used to find the size of largest mirror section in an array.
-	 * @param arr array
+	 * @param array is input array
 	 * @return largest mirror section size i.e. maxSize
 	 * @throw AssertionError Exception
 	 */
@@ -77,7 +77,7 @@ public class ArrOperation {
 	
 	/**
 	 * The method fixXY is used to solve the FixXY problem.
-	 * @param arr array
+	 * @param array is input array
 	 * @param X
 	 * @param Y
 	 * @return rearranged array
@@ -146,7 +146,7 @@ public class ArrOperation {
 	/**
 	 * The method spliArray is used to give the index where array can be split where left array and 
 	 * right array's elements sum is equal.
-	 * @param arr array
+	 * @param array is input array
 	 * @return index at which array can be split
 	 * @throw AssertionError Exception
 	 */
