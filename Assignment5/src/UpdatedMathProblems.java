@@ -53,6 +53,7 @@ public class MathProblems {
 	 * lcmhelper is the private helper method used in lcm method
 	 * @param number1 in integer format.Assume number1 > 0
 	 * @param number2 in integer format.Assume number1 > 0
+	 * @param tempNumber in integer format is temporary number used to do calculate lcm
 	 * @param tempNumber in integer format.Assume number1 > 0
 	 * @return lcm of number1 and number2 using tempNumber
 	 */
