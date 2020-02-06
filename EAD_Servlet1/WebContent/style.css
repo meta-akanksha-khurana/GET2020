@@ -1,0 +1,41 @@
+@CHARSET "ISO-8859-1";
+form {
+    margin: auto;
+    width: 50%;
+    text-align: left;
+}
+
+form label {
+    font-size: 20px;
+}
+
+form input {
+    margin: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="number"]{
+    width: 70%;
+    padding: 5px 10px;
+    margin: 10px;
+    border: none;
+    border: solid 2px black;
+    outline: gray medium;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+form input[type="submit"] {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    height: 30px;
+    width: 100px;
+}
+
+
+
