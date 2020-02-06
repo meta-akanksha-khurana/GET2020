@@ -1,7 +1,6 @@
 package com.servlet;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,21 +21,18 @@ public class StudentDao {
 	private String jdbcPassword;
 	private Connection jdbcConnection;
 
-	
+
 	/**
 	 * This constructor is used to initialize the URL,Username and Password for establishing 
-	 * connection with database 
-	 * @param jdbcURL.It is in string format used to store URL
-	 * @param jdbcUsername.It is in string format used to store Username
-	 * @param jdbcPassword.It is in string format used to store Password
+	 * connection with database
 	 */
-	public StudentDao(String jdbcURL, String jdbcUsername, String jdbcPassword) {
-		this.jdbcURL = jdbcURL;
-		this.jdbcUsername = jdbcUsername;
-		this.jdbcPassword = jdbcPassword;
+	public StudentDao(){
+		this.jdbcURL="jdbc:mysql://localhost:3306/student";
+		this.jdbcUsername="root";
+		this.jdbcPassword="root";
 	}
 
-	
+
 	/**
 	 * This function is used to establish jdbc connection
 	 * @throws SQLException
@@ -70,23 +66,33 @@ public class StudentDao {
 	 * @throws SQLException
 	 */
 	public boolean insertStudent(Student student) throws SQLException {
-		String sql = "INSERT INTO studentdetail (firstName,lastName,fatherName,email,class,Age) VALUES (?,?,?,?,?,?)";
+		int emailAlreadyExist=0;
 		connect();
-		PreparedStatement statement = jdbcConnection.prepareStatement(sql);
-		statement.setString(1, student.getFirstName());
-		statement.setString(2, student.getLastName());
-		statement.setString(3, student.getFatherName());
-		statement.setString(4, student.getEmail());
-		statement.setInt(5, student.getClassOfStudent());
-		statement.setInt(6, student.getAge());
+		Statement st = jdbcConnection.createStatement();
+		String Email = student.getEmail();
+		String strQuery = "SELECT COUNT(*) FROM studentdetail where email='"+Email+"'";
+		ResultSet rs = st.executeQuery(strQuery);
+		while(rs.next())
+		{
+			emailAlreadyExist = rs.getInt(1);
+		}
+		if(emailAlreadyExist==0){
+			String sql = "INSERT INTO studentdetail (firstName,lastName,fatherName,email,class,Age) VALUES (?,?,?,?,?,?)";
+			PreparedStatement statement = jdbcConnection.prepareStatement(sql);
+			statement.setString(1, student.getFirstName());
+			statement.setString(2, student.getLastName());
+			statement.setString(3, student.getFatherName());
+			statement.setString(4, student.getEmail());
+			statement.setInt(5, student.getClassOfStudent());
+			statement.setInt(6, student.getAge());
 
-		int count=statement.executeUpdate();
-		statement.close();
-		disconnect();
-		if(count>0){
+			statement.executeUpdate();
+			statement.close();
+			disconnect();
 			return true;
 		}
 		else{
+			disconnect();
 			return false;
 		}
 	}
@@ -108,25 +114,7 @@ public class StudentDao {
 		Statement statement = jdbcConnection.createStatement();
 		ResultSet resultSet = statement.executeQuery(sql);
 
-		while (resultSet.next()) {
-			String firstName = resultSet.getString("firstName");
-			String lastName = resultSet.getString("lastName");
-			String fatherName = resultSet.getString("fatherName");
-			String email = resultSet.getString("email");
-			int classOfStudent=resultSet.getInt("class");
-			int age=resultSet.getInt("Age");
-
-
-			Student student = new Student();
-			student.setFirstName(firstName);
-			student.setLastName(lastName);
-			student.setFatherName(fatherName);
-			student.setEmail(email);
-			student.setClassOfStudent(classOfStudent);
-			student.setAge(age);
-
-			listStudent.add(student);
-		}
+		listStudent=resultSetToList(resultSet);
 
 		resultSet.close();
 		statement.close();
@@ -166,7 +154,7 @@ public class StudentDao {
 		}
 	}
 
-	
+
 	/**
 	 * This function is used to get a single record of student from database
 	 * @param emailId.It is the unique id in string format.
@@ -174,7 +162,6 @@ public class StudentDao {
 	 * @throws SQLException
 	 */
 	public Student getStudent(String emailId) throws SQLException {
-		System.out.println("new student");
 		Student student=new Student();
 		String sql = "SELECT * FROM studentdetail WHERE email = ?";
 
@@ -201,7 +188,7 @@ public class StudentDao {
 			student.setClassOfStudent(classOfStudent);
 			student.setAge(age);
 			student.setEmail(email);
-			System.out.println("age "+age);
+
 
 		}
 
@@ -218,19 +205,22 @@ public class StudentDao {
 	 * @param lastName.It is the string passed as lastName of student
 	 * @return ResultSet containing the result of the function
 	 */
-	public ResultSet search(String firstName, String lastName)
+	public List<Student> search(String firstName, String lastName)
 	{
 		ResultSet students = null;
+		List<Student> listStudent=new ArrayList<Student>();
 		try{
 			String query = "SELECT * FROM studentdetail where firstName=\""+firstName+"\" and " +"lastName=\""+lastName+"\"";
 			connect();
 			PreparedStatement st = jdbcConnection.prepareStatement(query);
 			students = st.executeQuery(query);
+
+			listStudent=resultSetToList(students);
 		}catch(Exception e){
 
 			e.printStackTrace();
 		}
-		return students;
+		return listStudent;
 	}
 
 
@@ -247,32 +237,42 @@ public class StudentDao {
 			String query = "SELECT * FROM studentdetail WHERE class="+Integer.parseInt(classOfStudent);
 			connect();
 			PreparedStatement st = jdbcConnection.prepareStatement(query);
-			System.out.println(query.toString());
+
 			resultSet = st.executeQuery(query);
 
-			while (resultSet.next()) {
-				String firstName = resultSet.getString("firstName");
-				String lastName = resultSet.getString("lastName");
-				String fatherName = resultSet.getString("fatherName");
-				String email = resultSet.getString("email");
-				int studentClass=resultSet.getInt("class");
-				int age=resultSet.getInt("Age");
-
-
-				Student student = new Student();
-				student.setFirstName(firstName);
-				student.setLastName(lastName);
-				student.setFatherName(fatherName);
-				student.setEmail(email);
-				student.setClassOfStudent(studentClass);
-				student.setAge(age);
-
-				listStudent.add(student);
-			}
+			listStudent=resultSetToList(resultSet);
 		}catch(Exception e){
 
 			e.printStackTrace();
 		}
+		return listStudent;
+	}
+
+
+
+	private List<Student> resultSetToList(ResultSet resultSet) throws SQLException
+	{
+		List<Student> listStudent=new ArrayList<>();
+		while (resultSet.next()) {
+			String firstName = resultSet.getString("firstName");
+			String lastName = resultSet.getString("lastName");
+			String fatherName = resultSet.getString("fatherName");
+			String email = resultSet.getString("email");
+			int classOfStudent=resultSet.getInt("class");
+			int age=resultSet.getInt("Age");
+
+
+			Student student = new Student();
+			student.setFirstName(firstName);
+			student.setLastName(lastName);
+			student.setFatherName(fatherName);
+			student.setEmail(email);
+			student.setClassOfStudent(classOfStudent);
+			student.setAge(age);
+
+			listStudent.add(student);
+		}
+
 		return listStudent;
 	}
 }

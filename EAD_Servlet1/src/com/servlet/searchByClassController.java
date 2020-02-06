@@ -18,13 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/searchByClassController")
 public class searchByClassController extends HttpServlet {
-	StudentDao studentDao;
-	public void init(){
-		String jdbcURL="jdbc:mysql://localhost:3306/student";
-		String jdbcUsername="root";
-		String jdbcPassword="root";
-		studentDao = new StudentDao(jdbcURL, jdbcUsername, jdbcPassword);
-	}
+	private StudentDao studentDao=new StudentDao();
+	
 	
 	private static final long serialVersionUID = 1L;
        

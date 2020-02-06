@@ -1,6 +1,7 @@
 package com.servlet;
 
 import java.io.IOException;
+
 import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.servlet.StudentDao;
+import java.util.*;
 
 /**
  * Servlet implementation class searchByNameController
@@ -17,14 +19,9 @@ import com.servlet.StudentDao;
 @WebServlet("/searchServlet")
 public class searchServlet extends HttpServlet {
 	
-private StudentDao studentDao;
+	private StudentDao studentDao=new StudentDao();
 	
-	public void init(){
-		String jdbcURL="jdbc:mysql://localhost:3306/student";
-		String jdbcUsername="root";
-		String jdbcPassword="root";
-		studentDao = new StudentDao(jdbcURL, jdbcUsername, jdbcPassword);
-	}
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -42,9 +39,10 @@ private StudentDao studentDao;
 		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
-		ResultSet rs =studentDao.search(firstName, lastName);
+		
+		List<Student> rs =studentDao.search(firstName, lastName);
 		request.setAttribute("students", rs);
-        request.getRequestDispatcher("viewStudent.jsp").forward(request, response);
+        request.getRequestDispatcher("viewStudent1.jsp").forward(request, response);
 	}
 
 	/**

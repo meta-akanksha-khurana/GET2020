@@ -21,15 +21,9 @@ import com.servlet.Student;
 @WebServlet("/updateStudentServlet")
 public class updateStudentServlet extends HttpServlet {
 	
-	private StudentDao studentDao;
+	private StudentDao studentDao=new StudentDao();
 	PrintWriter out;
 
-	public void init(){
-		String jdbcURL="jdbc:mysql://localhost:3306/student";
-		String jdbcUsername="root";
-		String jdbcPassword="root";
-		studentDao = new StudentDao(jdbcURL, jdbcUsername, jdbcPassword);
-	}
 
 	private static final long serialVersionUID = 1L;
        
