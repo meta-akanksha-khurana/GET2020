@@ -14,14 +14,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-//import com.metacube.rest.dao.ItemEntity;
+
 import com.metacube.rest.dao.impl.ItemEntity;
 import com.metacube.rest.pojo.Item;
 
 @Path("/inventory")
 public class WebController {
 	
-	//private ItemEntity inventory = new ItemEntityImpl();
 	ItemEntity inventory=new ItemEntity();
 	
     @GET
