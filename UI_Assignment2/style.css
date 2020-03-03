@@ -1,0 +1,146 @@
+.navbar {
+    background-color: darkblue;
+    font-weight: 100;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    padding: 10px 20px;
+}
+
+a {
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: black;
+}
+
+form {
+    margin: auto;
+    width: 50%;
+    text-align: left;
+}
+
+form label {
+    font-size: 20px;
+    font-family: "Lucida Sans Unicode";
+    color: darkblue;
+}
+
+form input {
+    margin: 20px;
+}
+
+form input[type="text"],
+form input[type="Password"],
+form input[type="email"],
+form input[type="tel"],
+form textarea,
+form select {
+    width: 70%;
+    padding: 5px 10px;
+    margin: 10px;
+    border: none;
+    border: solid 2px darkblue;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+form input[type="submit"] {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: darkblue;
+    color: white;
+    height: 30px;
+    width: 100px;
+}
+
+form input[type="submit"]:hover {
+    color: white;
+    background-color: black;
+}
+
+fieldset {
+    border-radius: 2%;
+    border-color: darkblue;
+}
+
+#AddEmployee,
+#AddVehicle,
+#GiveFeedback {
+    white-space: pre;
+    left: 0px;
+}
+
+#Pricing {
+    text-align: center;
+}
+
+#Cycle,
+#Motorcycle,
+#FourWheelers {
+    outline: darkblue;
+    outline-style: solid;
+    display: inline-block;
+    margin: 20px;
+    padding: 20px;
+}
+
+.selectedPass {
+    border-style: solid;
+    border-color: darkblue;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.prices {
+    color: gray;
+    font-size: 20px;
+    line-height: 0px;
+}
+
+button {
+    background-color: darkblue;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    width: 100px;
+}
+
+#image {
+    margin-left: 61px;
+    margin-right: -262px;
+    margin-top: 150px;
+    float: right;
+}
+
+#GiveFeedback {
+    width: 660px;
+    height: 662px;
+    margin-left: 340px;
+    border: solid 2px;
+    border-radius: 2%;
+    border-color: darkblue;
+}
+
+#feedbackForm {
+    margin-left: 20px;
+}
+
+details {
+    margin: 1rem;
+}
