@@ -4,39 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>  -->
+
+    <!-- script to use fontawesome icons in page -->
     <script src="https://kit.fontawesome.com/68c06cb343.js"></script>
     <title>Document</title>
 </head>
 
 <body background="C:\Users\Akanksha\Downloads\CSS Assignment\images\bodybg.png">
-    <div id="div1">
+    <div id="headerDiv">
+        <!-- header of the page -->
+        <header>
+            <div>
+                <h2>LOGO TITLE</h2>
+            </div>
+            <div id="icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-google-plus-g"></i>
+            </div>
+            <div>
+                <nav>
+                    <a href="#Home">Home</a>
+                    <a href="#Features">Features</a>
+                    <a href="#Reviews">Reviews</a>
+                    <a href="#Download">Download</a>
+                </nav>
+            </div>
+        </header>
 
-        <img src="C:\Users\Akanksha\Downloads\CSS Assignment\images\homebg.png">
-        <div>
-            <h2>LOGO TITLE</h2>
-        </div>
-        <div id="icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-google-plus-g"></i>
-        </div>
-        <div>
-            <nav>
-                <a href="#Home">Home</a>
-                <a href="#Features">Features</a>
-                <a href="Reviews">Reviews</a>
-                <a href="#Download">Download</a>
-            </nav>
-        </div>
-
-        <div>
+        <!-- div for home -->
+        <div id="Home">
+            <img src="C:\Users\Akanksha\Downloads\CSS Assignment\images\homebg.png">
             <h1>Get the most fun weather app</h1>
-            <button type="button" id="Download">Download</button>
-            <button type="button" id="Features">Features</button>
+            <button type="button">Download</button>
+            <button type="button"></button>Features</button>
         </div>
 
+        <!-- div to get the image aside -->
         <div>
             <aside>
                 <img src="C:\Users\Akanksha\Downloads\CSS Assignment\images\phone1.png">
@@ -44,16 +48,14 @@
         </div>
     </div>
 
-    <div id="div2">
+    <!-- div for features -->
+    <div id="Features">
         <article>
             <h1>Perfect Features</h1>
             <p>only necessary</p>
         </article>
 
         <section>
-            <!-- <i class="fa fa-500px"></i>   -->
-
-            <!-- <i class="fa fa-diamond" aria-hidden="true"></i>  -->
             <span><i class="far fa-gem"></i></span>
             <h2>Usability</h2>
             <p>Sometimes the simplest things are hardest to find. So we created a new line for everyday life
@@ -81,7 +83,8 @@
     </div>
 
 
-    <div id="div3">
+    <!-- div for screenshots -->
+    <div id="Screenshots">
         <article>
             <h1>Screenshots</h1>
             <p>The brightest images</p>
@@ -117,7 +120,8 @@
 
     </div>
 
-    <div id="div4">
+    <!-- div for reviews -->
+    <div id="Reviews">
         <article>
             <h1>What reviews are saying</h1>
             <span>Reviews</span>
@@ -155,8 +159,8 @@
         </section>
     </div>
 
-
-    <div id="div5">
+    <!-- div for download -->
+    <div id="Download">
         <section>
             <h1>How Download the app?</h1>
             <p>Just download the app from the store.Simple, nice and user friendly application of the weather.Only relevant and useful information
@@ -167,7 +171,7 @@
         </section>
     </div>
 
-    <div>
+    <div id="footerDiv">
         <footer>
             <img src="C:\Users\Akanksha\Downloads\CSS Assignment\images\footer-logo.png">
             <nav>
