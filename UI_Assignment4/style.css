@@ -1,0 +1,256 @@
+   /* * {
+       border: 1px solid black;
+   } */
+   
+   body {
+       background-image: url('C:/Users/Akanksha/Downloads/CSS Assignment/images/bodybg.png');
+       margin: 0px;
+   }
+   /* Style for header area  */
+   
+   #headerDiv {
+       background-image: url('C:/Users/Akanksha/Downloads/CSS Assignment/images/homebg.png');
+       background-repeat: no-repeat;
+       background-size: 100% 100%;
+       width: 100%;
+   }
+   
+   .container {
+       display: flex;
+       justify-content: space-around;
+       padding: 18px;
+   }
+   
+   .item {
+       color: white;
+       justify-content: space-around;
+   }
+   
+   nav a {
+       color: white;
+       text-decoration: none;
+       padding: 10px;
+   }
+   
+   a:hover {
+       background-color: black;
+   }
+   /* style for home area */
+   
+   #Home span {
+       color: white;
+       font-size: 67px;
+   }
+   
+   #download {
+       background-color: tomato;
+       color: white;
+       border: none;
+       padding: 12px 24px;
+   }
+   
+   #features {
+       background-color: royalblue;
+       color: white;
+       border: none;
+       padding: 12px 24px;
+   }
+   
+   .homeContainer {
+       display: flex;
+       flex-direction: row;
+   }
+   
+   aside {
+       height: 480px;
+   }
+   
+   aside img {
+       margin-top: 45px;
+   }
+   
+   #Home {
+       width: 50%;
+       margin-left: 108px;
+   }
+   /* style for feature area */
+   
+   article {
+       text-align: center;
+       margin: 50px;
+   }
+   
+   article>h1 {
+       color: royalblue;
+       font-size: 30px;
+   }
+   
+   article>span {
+       color: gray;
+   }
+   
+   .featureItem i {
+       color: tomato;
+       font-size: 2.5em;
+   }
+   
+   .featureItem p {
+       color: grey;
+   }
+   
+   .featuresContainer {
+       display: flex;
+       flex-direction: row;
+       margin-left: auto;
+       margin-right: auto;
+       width: 60%;
+   }
+   
+   .featureItem {
+       margin: 6px;
+   }
+   
+   .featureItem span {
+       font-size: 25px;
+       margin-left: 7px;
+       font-weight: bold;
+       margin-top: 10px;
+   }
+   
+   #icons i {
+       padding: 10px;
+   }
+   
+   .featureItem i {
+       float: left;
+   }
+   
+   .featureItem p {
+       padding-left: 54px;
+       margin-top: 9px;
+   }
+   
+   #featuresImage {
+       margin-left: 315px;
+       margin-right: auto;
+       width: 50%;
+   }
+   /* style for screenshots area */
+   
+   #Screenshots>section>div>h1 {
+       color: lightgray;
+       writing-mode: vertical-lr;
+       font-size: 188px;
+       margin-left: 386px;
+       position: absolute;
+   }
+   
+   .screenshotContainer {
+       display: flex;
+       flex-direction: column;
+   }
+   
+   .img1 {
+       position: relative;
+       left: 168px;
+   }
+   
+   .screenshotItem>div>p {
+       width: 285px;
+       color: gray;
+       font-size: 18px;
+   }
+   
+   .screenshotItem>div>h2 {
+       font-size: 40px;
+   }
+   /* style for review area */
+   
+   .reviewContainer {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+       padding: 20px;
+       flex-wrap: wrap;
+   }
+   
+   .reviewItem {
+       padding: 20px;
+   }
+   
+   .reviewItem p {
+       width: 500px;
+       font-size: larger;
+       font-weight: bold;
+   }
+   
+   .reviewItem span {
+       font-size: medium;
+   }
+   
+   .reviewItem i {
+       color: royalblue;
+   }
+   /* style for download area */
+   
+   .downloadContainer {
+       display: flex;
+       flex-direction: row;
+       padding: 30px;
+       justify-content: space-around;
+       height: 391px;
+       background: url('C:/Users/Akanksha/Downloads/CSS Assignment/images/downloadbg.png');
+   }
+   
+   .downloadItem {
+       margin: 20px;
+   }
+   
+   .downloadItem span {
+       color: white;
+       font-size: 33px;
+       font-weight: bold;
+   }
+   
+   .downloadItem p {
+       color: white;
+       font-size: 19px;
+       width: 220px;
+   }
+   
+   .apps {
+       display: flex;
+       flex-direction: row;
+   }
+   
+   .apps>img {
+       margin: 5px;
+       margin-left: 0px;
+       width: 100px;
+   }
+   /* style for footer */
+   
+   footer {
+       background-color: gray;
+   }
+   
+   .footer {
+       padding-top: 20px;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-around;
+       height: 80px;
+   }
+   
+   .footerItem {
+       color: white;
+   }
+   
+   hr {
+       color: gray;
+       width: 1068px;
+   }
+   
+   .fas.fa-quote-right {
+       margin-left: 334px;
+   }
