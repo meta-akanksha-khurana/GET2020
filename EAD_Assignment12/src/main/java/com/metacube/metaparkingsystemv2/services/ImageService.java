@@ -19,13 +19,6 @@ import com.metacube.metaparkingsystemv2.serviceInterfaces.IImageService;
 @Service
 public class ImageService implements IImageService{
 	
-	/*
-	 * public void saveImage(MultipartFile imageFile, int empId) throws Exception {
-	 * String folder = "/MetaParkingSystemV2/src/main/resources/static/images";
-	 * byte[] bytes = imageFile.getBytes(); Path path = Paths.get(folder + empId +
-	 * ".png"); Files.write(path, bytes); }
-	 */
-	
 	@Override
 	public void saveImage(MultipartFile imageFile, int empId ,String ud) {
 		try {
