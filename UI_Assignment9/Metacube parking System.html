@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Metacube Parking System </title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="index.js">
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Metacube Parking System</h1>
+    </header>
+
+    <!-- div for employee registration form  -->
+    <div id="employeeDiv">
+        <form id="empRegistrationForm" return="false">
+
+            <fieldset id="fieldset1">
+
+                <legend><b> Employee Registration Form </b></legend>
+
+                <div id="empNameDiv" style="display: block;">
+                    <label>Enter your Name </label><br/>
+                    <input id="empName" type="text" name="Name" placeholder="Name" required onkeydown="validateEmpRegistration(this.id)"><br/>
+                    <span id="comment" style="color: red;"></span><br>
+                </div>
+
+                <div id="genderDiv" class="empDiv">
+
+                    <label id="genderLabel"> </label><br/>
+                    <input type="radio" name="Gender" required onclick="validateGender()">Male
+                    <input type="radio" name="Gender" required onclick="validateGender()">Female<br/>
+                </div>
+
+                <div id="emailDiv" class="empDiv">
+                    <label id="emailLabel"></label> <br/>
+                    <input type="email" name="Email" placeholder="Email Id" id="emailId" required onkeydown="validateEmpRegistration(this.id)"><br/>
+                    <span id="comment1" style="color: red;"></span><br>
+                </div>
+
+                <div id="pswdDiv" class="empDiv">
+                    <label id="pswdLabel"></label><br/>
+                    <input type="password" placeholder="Password" id="pswd" required onkeydown="validateEmpRegistration(this.id)"><br/>
+                </div>
+
+                <div id="confirmPswdDiv" class="empDiv">
+                    <label id="confirmPswdLabel"> </label><br/>
+                    <input type="password" placeholder="Confirm Password" id="confirmPswd" required onkeydown="validateEmpRegistration(this.id)"><br/>
+                    <span id="comment2" style="color: red;"></span><br>
+                </div>
+
+                <div id="contactDiv" class="empDiv">
+                    <label id="contactLabel"></label> <br/>
+                    <input type="tel" placeholder="Contact Number" id="contact" required><br/><br/>
+                    <span id="comment3" style="color: red;"></span><br>
+                </div>
+                <div id="submitDiv" class="empDiv">
+                    <input type="button" value="Next" onclick="register()">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <!-- div for vehicle registration -->
+    <div style="display: none;" id="vehicleDiv">
+        <center>
+            <h2 id="empMessage"></h2>
+        </center>
+        <form id="vehicleDetails">
+            <fieldset id="fieldset2">
+                <legend><b>Vehicle Details</b></legend>
+                <div id="vehicleNameDiv">
+                    <label id="vehicleNameLabel">Enter your vehicle name</label><br/>
+                    <input id="vehicleName" type="text" placeholder="Vehicle Name" required onkeydown="validateVehicle(this.id)"><br/>
+                </div>
+
+                <div id="vehicleTypeDiv" class="vehDiv">
+                    <label id="vehicleTypeLabel"></label><br/>
+                    <select name="Vehicle Type" id="vehicleType" onkeydown="validateVehicle(this.id)">
+                <option value="Cycle">Cycle</option>
+                <option value="MotorCycle">MotorCycle</option>
+                <option value="FourWheelers">Four Wheelers</option>
+            </select></br>
+                </div>
+
+                <div id="vehicleNumberDiv" class="vehDiv">
+                    <label id="vehicleNumberLabel"></label><br/>
+                    <input type="text" name="Vehicle Number" placeholder="Vehicle Number" id="vehicleNumber" onkeydown="validateVehicle(this.id)"><br/>
+                </div>
+
+                <div id="vehicleIdentificationDiv" class="vehDiv">
+                    <label id="vehicleIdentificationLabel"></label><br/>
+                    <textarea placeholder="Identification"></textarea><br/>
+                    <input type="button" value="Next" onclick="vehicleRegistration()">
+                </div>
+            </fieldset>
+        </form>
+    </div><br><br>
+
+    <!-- div for currency and pass -->
+    <div style="display: none;" id="a1">
+        <div id="a2">
+            <select id="amount" onchange="changeCurrency()">
+                <option disabled selected>Change Currency</option>
+                <option value="INR">INR</option>
+                <option value="USD">USD</option>
+                <option value="YEN">YEN</option>
+            </select><br/><br/><br/>
+            <div id="passCycle">
+                <fieldset>
+                    <legend><b>Select Pass</b></legend>
+                    <h1>Cycle</h1><br/>
+                    <span id="error"></span>
+                    <div class="flex-container">
+                        <div class="card">
+                            <h1>1 Day</h1>
+                            <p id="dailyPrice0">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passDay()">Make Pass</button></p>
+
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Month</h1>
+                            <p id="monthlyPrice0">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passMonth()">Make Pass</button></p>
+
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Year</h1>
+                            <p id="yearlyPrice0">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passYear()">Make Pass</button></p>
+                        </div>
+                    </div>
+                </fieldset>
+            </div><br>
+
+
+            <div id="passMotorCycle">
+                <fieldset>
+                    <legend><b>Select Pass</b></legend>
+                    <h1>MotorCycle</h1><br/>
+                    <span id="error1"></span>
+                    <div class="flex-container">
+                        <div class="card">
+                            <h1>1 Day</h1>
+                            <p id="dailyPrice1">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passDay()">Make Pass</button></p>
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Month</h1>
+                            <p id="monthlyPrice1">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passMonth()">Make Pass</button></p>
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Year</h1>
+                            <p id="yearlyPrice1">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passYear()">Make Pass</button></p>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+            </div><br>
+
+
+            <div id="passFourWheelers">
+                <fieldset>
+                    <legend><b>Select Pass</b></legend>
+                    <h1>Four Wheeler</h1><br/>
+                    <div class="flex-container">
+                        <div class="card">
+                            <h1>1 Day</h1>
+                            <p id="dailyPrice2">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passDay()">Make Pass</button></p>
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Month</h1>
+                            <p id="monthlyPrice2">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passMonth()">Make Pass</button></p>
+                        </div>
+
+                        <div class="card">
+                            <h1>1 Year</h1>
+                            <p id="yearlyPrice2">Choose Currency</p>
+                            <p><button class="cardButton" value="Make Pass" onClick="passYear()">Make Pass</button></p>
+                        </div>
+
+
+                    </div>
+                </fieldset>
+            </div>
+        </div><br>
+
+        <h1 id="recipt"></h1>
+    </div>
+</body>
+
+</html>
