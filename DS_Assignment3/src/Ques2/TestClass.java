@@ -8,6 +8,11 @@ import org.junit.rules.ExpectedException;
 public class TestClass {
 
 	PriorityQueue queue=new PriorityQueue(5);
+	
+	/**
+	 * This test method is used to test positive test cases
+	 * of Enqueue method of PriorityQueue
+	 */
 	@Test
 	public void testEnqueuePosititveCase() {
 			boolean thrown=false;
@@ -25,6 +30,10 @@ public class TestClass {
 		
 	}
 
+	/**
+	 * This test method is used to test negative test cases
+	 * of Enqueue method of PriorityQueue
+	 */
 	@Test
 	public void testEnqueueNegativeCase() {
 		boolean thrown=false;
@@ -42,6 +51,11 @@ public class TestClass {
 		assertTrue(thrown);
 	}
 	
+	
+	/**
+	 * This test method is used to test positive test cases
+	 * of Dequeue method of PriorityQueue
+	 */
 	@Test
 	public void testDequeuePositiveCase(){
 		boolean thrown=false;
@@ -65,7 +79,10 @@ public class TestClass {
 		assertFalse(thrown);
 	}
 	
-	
+	/**
+	 * This test method is used to test negative test cases
+	 * of Dequeue method of PriotityQueue
+	 */
 	@Test
 	public void testDequeueNegativeCase(){
 		boolean thrown=false;

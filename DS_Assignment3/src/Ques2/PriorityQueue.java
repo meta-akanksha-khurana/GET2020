@@ -1,5 +1,11 @@
 package Ques2;
 
+/**
+ * This class is used to implement Priority queue
+ * It implements IPriorityQueue
+ * @author Akanksha
+ *
+ */
 public class PriorityQueue implements IPriorityQueue {
 
 	int queue[],front,rear;
@@ -9,6 +15,11 @@ public class PriorityQueue implements IPriorityQueue {
 		front=rear=-1;
 	}
 	
+	
+	/**
+	 * This method is used to insert data in queue
+	 * Data value is used to represent its priority
+	 */
 	@Override
 	public void enqueue(int data) {
 		if(checkOverflow()){
@@ -47,6 +58,9 @@ public class PriorityQueue implements IPriorityQueue {
 	
 	
 
+	/**
+	 * This method is used to delete data from queue which has highest priority
+	 */
 	@Override
 	public int dequeue() {
 		if(checkUnderflow()){
@@ -63,6 +77,10 @@ public class PriorityQueue implements IPriorityQueue {
 		
 	}
 
+	/**
+	 * This method is used to check if queue is empty or not
+	 * @return true if queue is empty else return false
+	 */
 	@Override
 	public boolean checkUnderflow() {
 		if(front==-1 && rear==-1){
@@ -71,6 +89,11 @@ public class PriorityQueue implements IPriorityQueue {
 		return false;
 	}
 
+	
+	/**
+	 * This method is used to check if queue is full or not
+	 * @return true if queue is full else false 
+	 */
 	@Override
 	public boolean checkOverflow() {
 		if(front==0 && rear==queue.length-1){
@@ -78,39 +101,4 @@ public class PriorityQueue implements IPriorityQueue {
 		}
 		return false;
 	}
-	
-	public void display(){
-		if(checkUnderflow()){
-			throw new AssertionError("Queue is empty");
-		}
-		else{
-			for(int i=front;i<=rear;i++){
-				System.out.print(queue[i]+" ");
-			}
-			System.out.println();
-		}
-	}
-	public static void main(String[] args) {
-		PriorityQueue queue=new PriorityQueue(10);
-		queue.enqueue(3);
-//		queue.enqueue(4);
-//		queue.enqueue(6);
-//		queue.enqueue(9);
-		queue.display();
-//		queue.enqueue(5);
-//		queue.enqueue(2);
-//		queue.enqueue(1);
-//		queue.enqueue(6);
-//		queue.enqueue(16);
-//		queue.enqueue(11);
-//		queue.display();
-		//queue.enqueue(6);
-		System.out.println(queue.dequeue());
-		queue.display();
-		
-		System.out.println(queue.dequeue());
-		queue.display();
-	}
-
-
 }
