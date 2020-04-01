@@ -191,7 +191,7 @@ public class MaxHeap {
 			maxHeap.insert(newBowler);
 		}
 		
-		if(totalBalls>=remainingBowls){
+		if(totalBalls>remainingBowls){
 			maxHeap.playVirat(remainingBowls);
 		}
 		else{
