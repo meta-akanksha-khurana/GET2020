@@ -10,7 +10,7 @@ public class EmployeeList
 {
 	
 	Employee head = null;
-	Employee sort = null;
+	Employee sortPointer = null;
 	
 	/**
 	 * This method is used to add new Employee in list
@@ -20,11 +20,11 @@ public class EmployeeList
 	 */
 	void addEmployee(String name, long salary, int age)
 	{
-		Employee newEmp = new Employee(name, salary, age);
+		Employee newEmployee = new Employee(name, salary, age);
 
 		if(head == null)
 		{
-			head = newEmp;
+			head = newEmployee;
 		}
 		else{
 			Employee employee = head;
@@ -32,23 +32,28 @@ public class EmployeeList
 			{
 				employee = employee.next;
 			}
-			employee.next = newEmp;
+			employee.next = newEmployee;
 		}
 	}
 	
 	/**
 	 * This method is used to display the linked list
-	 * @param head
+	 * @param head is header of list
+	 * @throws AssertionError if list is empty
 	 */
 	private void display(Employee head) 
 	{
-		Employee emp = head;
-		while(emp != null)
-		{
-			System.out.println(emp.toString());
-			emp = emp.next;
+		if(head==null){
+			throw new AssertionError("List is empty");
 		}
-
+		else{
+		Employee employee = head;
+		while(employee != null)
+		{
+			System.out.println(employee.toString());
+			employee = employee.next;
+		}
+		}
 	}
 
 	/**
@@ -65,7 +70,7 @@ public class EmployeeList
 	 */
 	public void sort()
 	{
-		sort = null;
+		sortPointer = null;
 		Employee current = head;
 		while(current != null)
 		{
@@ -99,14 +104,14 @@ public class EmployeeList
 	 */
 	private void addToSortedList(Employee employee)
 	{
-		if(sort == null || compare(sort, employee))
+		if(sortPointer == null || compare(sortPointer, employee))
 		{
-			employee.next = sort;
-			sort = employee;
+			employee.next = sortPointer;
+			sortPointer = employee;
 		}
 		else
 		{
-			Employee current = sort;
+			Employee current = sortPointer;
 			while(current.next != null && compare(employee,current.next))
 			{
 				current = current.next;
@@ -122,22 +127,13 @@ public class EmployeeList
 	 */
 	public void displaySortedList() 
 	{
+		if(this==null){
+			throw new AssertionError("Empty list");
+		}
+		else{
 		sort();
-		display(sort);
-	}
-	
-	//main method
-	public static void main(String args[]) 
-	{
-		EmployeeList list = new EmployeeList();
-		list.addEmployee("A", 200, 23);
-		list.addEmployee("B", 475, 52);
-		list.addEmployee("C", 350, 41);
-		list.addEmployee("D", 200, 27);
-		list.addEmployee("E", 600, 31);
-		list.displayUnSortedList();
-		System.out.println("Sorted List: ");
-		list.displaySortedList();
+		display(sortPointer);
+		}
 	}
 
 }

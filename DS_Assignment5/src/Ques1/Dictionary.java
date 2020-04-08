@@ -143,10 +143,12 @@ public class Dictionary implements IDictionary
 	public String getValue(String key) 
 	{
 		Node node = searchPair(root, key);
-		if(node != null) {
+		if(node==null){
+			throw new NullPointerException("Node not found");
+		}
+		else{
 			return node.value;
 		}
-		return null;
 	}
 	
 	/**
@@ -160,7 +162,7 @@ public class Dictionary implements IDictionary
 	{
 		if(searchNode == null) 
 		{
-			throw new NullPointerException("Node not found");
+			return null;
 		}
 		else if(searchNode.key.equals(key)) 
 		{
@@ -206,7 +208,7 @@ public class Dictionary implements IDictionary
 		{
 			traversal(node.left);
 			list.add(node);
-			System.out.println(node.key);
+			//System.out.println(node.key);
 			traversal(node.right);
 			return;
 		}
@@ -240,25 +242,6 @@ public class Dictionary implements IDictionary
 		}
 
 		return sublist;
-	}
-	
-	//main method
-	public static void main(String args[])
-	{
-		Dictionary dict = new Dictionary();
-		System.out.println(dict.getValue("A"));
-		dict.add("E", "Egg");
-		ArrayList<Node> sublist = (ArrayList<Node>) dict.sortSublist("C","E");
-		for(Node list : sublist) 
-		{
-			System.out.println(list.key);
-		}
-		
-		System.out.println("traversal");
-		dict.traversal(dict.root);
-		dict.add("O","Orange");
-		System.out.println("traversal");
-		dict.traversal(dict.root);
 	}
 	
 }
